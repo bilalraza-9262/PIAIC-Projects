@@ -1,0 +1,22 @@
+{
+  "name": "project-07",
+  "version": "1.0.0",
+  "description": "",
+  "main": "studentManagement.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "inquirer": "^9.2.11"
+  },
+  "devDependencies": {
+    "@types/chalk": "^2.2.0",
+    "@types/inquirer": "^9.0.6",
+    "@types/node": "^20.6.0"
+  }
+}
