@@ -1,14 +1,16 @@
 import inquirer from "inquirer";
 import chalk from "chalk";
 
-
+//here userinput type
+interface UserAnswer {
+    UserName: string,
+    UserValue: number
+}
 
 
 class Person {
-
     name: string;
     value: number;
-
 
     constructor() {
         this.name = '';
@@ -17,7 +19,7 @@ class Person {
 
     async UserAnswer() {
 
-        let userName = await inquirer.prompt([{
+        let userName: UserAnswer = await inquirer.prompt([{
             name: "UserName",
             type: "string",
             message: "Please enter your name here!"

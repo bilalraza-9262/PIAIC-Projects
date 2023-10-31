@@ -1,30 +1,36 @@
-function Countdown(targetDate:Date) {
+import chalk from "chalk";
+
+function Countdown(targetDate: Date) {
+
+  let now: Date = new Date();
+  let actualTime: number = targetDate.getTime() - now.getTime();
 
 
+  const seconds: number = Math.floor(actualTime / 1000) % 60;
+  const hours: number = Math.floor((actualTime / (1000 * 60 * 60)) % 24);
+  const minutes: number = Math.floor((actualTime / (1000 * 60)) % 60);
+  const days: number = Math.floor(actualTime / (1000 * 60 * 60 * 24));
 
-    let now = new Date();
-    let actualTime = targetDate.getTime() - now.getTime();
-    
 
-    const seconds = Math.floor(actualTime / 1000) % 60;
-    const hours = Math.floor((actualTime / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((actualTime / (1000 * 60)) % 60);
-    const days = Math.floor(actualTime / (1000 * 60 * 60 * 24));
+  const formattedDays: string = days.toString()
+  const formattedHours: string = hours.toString()
+  const formattedMinutes: string = minutes.toString()
+  const formattedSeconds: string = seconds.toString()
+  if (days > 0) {
+    console.log(chalk.greenBright("\nOur Wensite is coming soon!\n"));
+    console.log(`Days: ${chalk.blueBright(formattedDays)}, Hours: ${chalk.blueBright(formattedHours)}, Minutes: ${chalk.blueBright(formattedMinutes)}, Seconds: ${formattedSeconds}`);
+  } else {
+    console.log(chalk.yellowBright("\nWebsite has launched"));
 
-  console.log("Our Wensite is coming soon!");
-  const formattedDays = days.toString().padStart(2, '0');
-  const formattedHours = hours.toString().padStart(2, '0');
-  const formattedMinutes = minutes.toString().padStart(2, '0');
-  const formattedSeconds = seconds.toString().padStart(2, '0');
+  }
 
-  console.log(`Days: ${formattedDays} Hours: ${formattedHours} Minutes: ${formattedMinutes} Seconds: ${formattedSeconds}`);
-//   console.log(`Days ${days} Hourse ${hours} Minutes ${minutes} Seconds ${seconds}`);
-  
+  //   console.log(`Days ${days} Hourse ${hours} Minutes ${minutes} Seconds ${seconds}`);
+
 }
 let launchedDate = new Date("2024-10-09");
 
-setInterval(()=>{
-    Countdown(launchedDate)
+setInterval(() => {
+  Countdown(launchedDate)
 }, 1000);
 
 

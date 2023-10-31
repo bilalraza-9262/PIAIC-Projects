@@ -78,29 +78,29 @@ async function addOnTodos() {
 //this function derive for delete items on Todo list
 async function deleteTodos() {
 
-		const deleting: UserType = await inquirer.prompt({
-			name: "Delete",
-			type: "list",
-			message: "What do you want to delete on your Todos? ",
-			choices: allTodos
-		})
+	const deleting: UserType = await inquirer.prompt({
+		name: "Delete",
+		type: "list",
+		message: "What do you want to delete on your Todos? ",
+		choices: allTodos
+	})
 
-		const index = allTodos.indexOf(deleting.Delete)
-		allTodos.splice(index, 1)
+	const index :number= allTodos.indexOf(deleting.Delete)
+	allTodos.splice(index, 1)
 
-		if (allTodos.length > 0) {
-			console.log(chalk.hex("#7a67f5")("\n--------Your Todo list is----------"));
+	if (allTodos.length > 0) {
+		console.log(chalk.hex("#7a67f5")("\n--------Your Todo list is----------"));
 
-			for (let i = 0; i < allTodos.length; i++) {
-				console.log(`${i + 1}: ${allTodos[i]}`);
-			}
-			console.log(chalk.hex("#62bce3")("\nGo and follow your to-do list.\n"));
-
-		} else {
-			console.log(chalk.hex("#d96b04")("\nYou have delete all Todos"));
-			
+		for (let i = 0; i < allTodos.length; i++) {
+			console.log(`${i + 1}: ${allTodos[i]}`);
 		}
-	
+		console.log(chalk.hex("#62bce3")("\nGo and follow your to-do list.\n"));
+
+	} else {
+		console.log(chalk.hex("#d96b04")("\nYou have delete all Todos"));
+
+	}
+
 }
 
 //here call main function

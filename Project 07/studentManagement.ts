@@ -11,7 +11,15 @@ type Static_Student = {
     amount: number,
     age: number
 };
-//her start class
+interface EnrollType {
+    userName: string,
+    userAge: number,
+    userCourse: string,
+    userBalance: number,
+    paymentAmount: number
+}
+
+//here start class
 class StudentManager {
     static students: Static_Student[] = [];
     id: number;
@@ -34,7 +42,7 @@ class StudentManager {
     async enrollStudent() {
         console.log(chalk.hex("#cf9d40")("\nFill the form for enrolling"));
 
-        const userEnroll = await inquirer.prompt([
+        const userEnroll: EnrollType = await inquirer.prompt([
             {
                 name: "userName",
                 type: "input",
@@ -91,7 +99,7 @@ class StudentManager {
             console.log("Before enrolling, you can not pay any tuition fees ");
 
         } else {
-            const amountToPay = await inquirer.prompt({
+            const amountToPay: EnrollType = await inquirer.prompt({
                 name: "paymentAmount",
                 type: "number",
                 message: `Enter the tuition fee amount to pay for ${this.name} for ${this.courses} course: `,

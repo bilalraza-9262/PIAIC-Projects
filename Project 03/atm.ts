@@ -22,7 +22,6 @@ async function userPin(pin: number) {
 	console.log(chalk.hex("#95e8a8")(`\nYour pin is ${password}\n`));
 	while (true) {
 		const userInput: UserInput = await inquirer.prompt({
-
 			name: "Pin",
 			type: "number",
 			message: "Please enter your pin here: ",

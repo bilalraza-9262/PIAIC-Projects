@@ -47,6 +47,7 @@ async function main() {
     }
     else {
         console.error(chalk.redBright('Failed to fetch data. Check your API key and base currency.'));
+        return null;
     }
 }
 //this function convert a source currency amount into target currency amount
@@ -54,7 +55,7 @@ async function convertCurrency() {
     const userAnswers = await main();
     const fromCurrency = userAnswers.fromCurrency;
     const toCurrency = userAnswers.toCurrency;
-    const amount = parseFloat(userAnswers.amount);
+    const amount = userAnswers.amount;
     const convertApiUrl = `https://v6.exchangerate-api.com/v6/40c92bcfed10f7809d887273/pair/${fromCurrency}/${toCurrency}`;
     try {
         const response = await axios.get(convertApiUrl);

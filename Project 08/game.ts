@@ -11,9 +11,11 @@ const userOption: string[] = ["Attack", "Drink Health", "Quit"]
 let playAgain: boolean = true;
 let userNameUpperCase
 let opponentNameUpperCase
-interface name {
+interface UserInput {
     UserName: string,
-    OppositeName: string
+    OppositeName: string,
+    Option: string,
+    TryAgain: boolean
 }
 
 //here main async function start
@@ -22,12 +24,12 @@ async function Game() {
     console.log(chalk.greenBright("\n------------Welcome to the Adventure Game!-------------\n"));
     while (true) {
         //here asking user about his/her name and opposite name
-        const userName: name = await inquirer.prompt([{
+        const userName: UserInput = await inquirer.prompt([{
             name: "UserName",
             type: "input",
             message: "Please enter your name here"
         }]);
-        const oppositeName: name = await inquirer.prompt([{
+        const oppositeName: UserInput = await inquirer.prompt([{
             name: "OppositeName",
             type: "list",
             message: "Select your opponent name here",
@@ -50,7 +52,7 @@ async function Game() {
     while (userHealth > 0 && opponentHealth > 0) {
 
         console.log("\n What do you like to do?");
-        const option = await inquirer.prompt([{
+        const option: UserInput = await inquirer.prompt([{
             name: "Option",
             type: "list",
             choices: userOption
@@ -103,11 +105,12 @@ async function Game() {
         };
     };
 
-    const tryAgain = await inquirer.prompt([
+    const tryAgain:UserInput = await inquirer.prompt([
         {
             name: "TryAgain",
             type: "confirm",
             message: "Do you want to play again? Press 'Y' to play again or 'N' to quit.",
+            default:false
         },
     ]);
 

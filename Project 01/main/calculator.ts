@@ -8,10 +8,16 @@ import subtraction from "../src/subtract.js";
 import multiplication from "../src/multiply.js";
 import division from "../src/division.js";
 
+interface User {
+	operation: string,
+	number1: number,
+	number2: number
+}
+
 //here async finction is start
 
 async function calculator() {
-	const userInput = await inquirer.prompt([{
+	const userInput: User = await inquirer.prompt([{
 		name: "operation",
 		type: "list",
 		message: chalk.yellowBright("\nWhich operator you want to perform\n"),
@@ -26,10 +32,10 @@ async function calculator() {
 		message: "Please enter Second number here: "
 	}])
 
-	let adding = add(userInput.number1, userInput.number2)
-	let subtract = subtraction(userInput.number1, userInput.number2)
-	let multiply = multiplication(userInput.number1, userInput.number2)
-	let divide = division(userInput.number1, userInput.number2)
+	let adding: number = add(userInput.number1, userInput.number2)
+	let subtract: number = subtraction(userInput.number1, userInput.number2)
+	let multiply: number = multiplication(userInput.number1, userInput.number2)
+	let divide: number = division(userInput.number1, userInput.number2)
 
 	if (isNaN(userInput.number1) || isNaN(userInput.number2)) {
 		console.log(chalk.redBright("\nPlease enter a valid number"));

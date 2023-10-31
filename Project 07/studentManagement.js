@@ -1,7 +1,7 @@
 //here import inquirer & chalk
 import inquirer from "inquirer";
 import chalk from "chalk";
-//her start class
+//here start class
 class StudentManager {
     static students = [];
     id;

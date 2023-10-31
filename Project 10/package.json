@@ -2,7 +2,8 @@
   "name": "project-10",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "countDown.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,6 +11,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/chalk": "^2.2.0",
     "@types/node": "^20.6.3"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0"
   }
 }

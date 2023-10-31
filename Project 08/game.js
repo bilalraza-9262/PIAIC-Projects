@@ -96,6 +96,7 @@ async function Game() {
             name: "TryAgain",
             type: "confirm",
             message: "Do you want to play again? Press 'Y' to play again or 'N' to quit.",
+            default: false
         },
     ]);
     if (tryAgain.TryAgain) {
